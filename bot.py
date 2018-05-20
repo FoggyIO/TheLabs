@@ -24,7 +24,7 @@ cooldowns = []
 
 #"/home/container/"+
 def execute_query(table, query):
-    conn = sqlite3.connect("/home/container/"+table)
+    conn = sqlite3.connect("/home/container/"+table) #should probably change the identifier to database instead of table, since it isn't the table that it's addressing here
     c = conn.cursor()
     c.execute(query)
     conn.commit()
@@ -32,7 +32,7 @@ def execute_query(table, query):
     conn.close()
 
 def db_query(table, query):
-    conn = sqlite3.connect("/home/container/"+table)
+    conn = sqlite3.connect("/home/container/"+table) #ditto
     c = conn.cursor()
     c.execute(query)
     result = c.fetchall()
