@@ -338,7 +338,12 @@ async def on_message(message):
         if message.author.id == 432329360863920148: #ditto
             args = message.content.split()
             challenge = " ".join(args[1:])
-
+    if message.content.upper().startswith("!PFP") or message.content.upper().startswith("!PROFILEPICTURE"):
+        args = message.content.split(" ")
+        user = discord.utils.get(message.guild.members, mention=args[1])
+        embed = discord.Embed(title="%s's profile picture",colour=0xFFAA00)
+        embed.set_image(url=user.avatar_url)
+        await channel.send(embed=embed)
 '''THERE IS ANOTHER COMMAND HERE, THAT IS UNFINISHED, BUT ALSO GIVES MASSIVE HINTS TOWARDS THE ERRORS CHALLENGE AND THEREFORE IS BEING KEPT HIDDEN FOR NOW''' 
 
     if message.author.id in cooldowns:
